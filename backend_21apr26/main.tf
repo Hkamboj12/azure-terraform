@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "rg1" {
-    name = "rg-dev"
-    location = "Central India"
+  name     = "rg-dev"
+  location = "Central India"
 
-    tags = {
-        env = "dev"
-    }
+  tags = {
+    env = "dev"
+  }
 }
 
 
@@ -20,7 +20,7 @@ resource "azurerm_storage_account" "sg-stateFile" {
   }
 }
 resource "azurerm_storage_container" "blob-statefile" {
-  name                  = "stateFile-container"
-  storage_account_id    = azurerm_resource_group.rg1.id
+  name                  = "statefilecontainer"
+  storage_account_id    = azurerm_storage_account.sg-stateFile.id
   container_access_type = "private"
 }
