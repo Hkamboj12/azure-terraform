@@ -24,3 +24,9 @@ resource "azurerm_storage_container" "blob-statefile" {
   storage_account_id    = azurerm_storage_account.sg-stateFile.id
   container_access_type = "private"
 }
+
+
+resource "azurerm_resource_group" "rg-prod" {
+  name = "rg-prod"
+  location = "Central India"
+}
