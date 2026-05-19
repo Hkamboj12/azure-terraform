@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "rg1" {
 
 
 resource "azurerm_storage_account" "sg-stateFile" {
-  name                     = "statefilehimanshu"
+  name                     = "statefilehimanshu123"
   resource_group_name      = azurerm_resource_group.rg1.name
   location                 = azurerm_resource_group.rg1.location
   account_tier             = "Standard"
@@ -29,4 +29,16 @@ resource "azurerm_storage_container" "blob-statefile" {
 resource "azurerm_resource_group" "rg-prod" {
   name = "rg-prod"
   location = "Central India"
+}
+
+module "resource_group" {
+  source = "../azure_modules/resource_group"
+  module-rg = {
+    rg = {
+      name = "abc-rg"
+      location = "westus"
+      resource_type = "module"
+    }
+  }
+  
 }
