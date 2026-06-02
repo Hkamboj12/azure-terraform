@@ -68,7 +68,7 @@ module "subnets" {
       }
       sub6 ={
         name = "database"
-        vnet = "vnet-"
+        vnet = "vnet-2"
         resource_group = "rg-dev"
         subnet_range = ["11.0.3.0/24"]
       }
@@ -81,51 +81,51 @@ module "NIC" {
 
     Private-NIC = {
         FrontSubVnet1 = {
-            name = "front-pvtNIC"
+            name = "front-pvtNIC1"
             location = "Central India"
             rg = "rg-dev"
             ipconfigname = "frontend"
-            subid = ""
+            subid = module.subnets.subnet_id["sub1"]
             pvtIpAddrAllc = "Dynamic"
         }
         BackendSubVnet1 = {
-            name = "backend-pvtNIC"
+            name = "backend-pvtNIC1"
             location = "Central India"
             rg = "rg-dev"
             ipconfigname = "Backend"
-            subid = ""
+            subid = module.subnets.subnet_id["sub2"]
             pvtIpAddrAllc = "Dynamic"
         }
         DatabaseSubVnet1 = {
-            name = "DB-pvtNIC"
+            name = "DB-pvtNIC1"
             location = "Central India"
             rg = "rg-dev"
             ipconfigname = "DB"
-            subid = ""
+            subid = module.subnets.subnet_id["sub3"]
             pvtIpAddrAllc = "Dynamic"
         }
         frontSubVnet2 = {
-            name = "front-pvtNIC"
+            name = "front-pvtNIC2"
             location = "Central India"
             rg = "rg-dev"
             ipconfigname = "fronent"
-            subid = ""
+            subid = module.subnets.subnet_id["sub4"]
             pvtIpAddrAllc = "Dynamic"
         }
         BackendSubVnet2 = {
-            name = "backend-pvtNIC"
+            name = "backend-pvtNIC2"
             location = "Central India"
             rg = "rg-dev"
             ipconfigname = "Backend"
-            subid = ""
+            subid = module.subnets.subnet_id["sub5"]
             pvtIpAddrAllc = "Dynamic"
         }
         DBSubVnet2 = {
-            name = "DB-pvtNIC"
+            name = "DB-pvtNIC2"
             location = "Central India"
             rg = "rg-dev"
             ipconfigname = "DB"
-            subid = ""
+            subid = module.subnets.subnet_id["sub6"]
             pvtIpAddrAllc = "Dynamic"
         }
     }  
