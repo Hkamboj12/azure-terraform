@@ -6,7 +6,7 @@ resource "azurerm_network_interface" "example" {
 
   ip_configuration {
     name                          = each.value.ip_name
-    subnet_id                     = each.value.sunbnet_id
+    subnet_id                     = var.subnet_id[each.value.subnet_name]
     private_ip_address_allocation = "Dynamic"
   }
 }

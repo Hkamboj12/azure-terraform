@@ -4,7 +4,10 @@ variable "NIC_details" {
       resource_group = string
       location = string
       ip_name = string
-      sunbnet_id = string
-      
+      subnet_name = string
     }))  
+}
+
+variable "subnet_id" {
+  type = map(string)  
 }
