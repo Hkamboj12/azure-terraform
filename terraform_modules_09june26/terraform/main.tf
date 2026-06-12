@@ -34,3 +34,15 @@ module "Bastion_servers" {
     subnet_id = module.subnet.subnet_id
     public_IP = module.Public_ip.public_ip
 }
+
+module "VM" {
+    source = "../modules/VM"
+    VM_details = var.VM_details
+    NIC_id = module.NIC.NIC_id
+}
+
+module "vnet_peering" {
+    source = "../modules/Vnet_peering"
+    vnet_peering_details = var.vnet_peering_details
+    Vnet_id = module.vnet.vnet_id
+}

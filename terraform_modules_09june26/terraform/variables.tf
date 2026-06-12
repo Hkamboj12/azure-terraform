@@ -56,3 +56,32 @@ variable "bastion_details" {
       publicIp = string
     }))
 }
+
+variable "VM_details" {
+    type = map(object({
+      #vm details
+      VM_name = string
+      location = string
+      resource_group = string
+      network_interface_ids = list(string)
+      vm_size = string
+
+      #image details
+      publisher = string
+      offer = string
+      sku = string
+      version = string
+
+      #tags
+      environment = string
+    }))
+}
+
+variable "vnet_peering_details" {
+    type = map(object({
+        name = string
+        resource_group = string
+        virtual_network_name = string
+        remote_network_name = string
+    }))  
+}
