@@ -1,4 +1,4 @@
-resource "azurerm_network_interface" "NIC" {
+resource "azurerm_network_interface" "example" {
     for_each = var.NIC_details
   name                = each.value.NIC_name
   location            = each.value.location
