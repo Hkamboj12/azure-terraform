@@ -1,4 +1,4 @@
-variable "vnet_details" {
+variable "vnetPeering_details" {
     type = map(object({
       name = string
       resource_group = string
@@ -8,5 +8,5 @@ variable "vnet_details" {
 }
 
 variable "vnet" {
-  type = string  
+  type = map(string)  
 }

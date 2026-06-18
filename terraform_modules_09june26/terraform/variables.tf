@@ -84,7 +84,7 @@ variable "windows_server" {
   }))
 }
 
-variable "vnet_details" {
+variable "vnetPeering_details" {
     type = map(object({
       name = string
       resource_group = string

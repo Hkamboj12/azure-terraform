@@ -1,5 +1,5 @@
 resource "azurerm_virtual_network_peering" "vnet-peering" {
-    for_each = var.vnet_details
+    for_each = var.vnetPeering_details
     name = each.value.name
     resource_group_name = each.value.resource_group
     virtual_network_name = each.value.virtual_network_name

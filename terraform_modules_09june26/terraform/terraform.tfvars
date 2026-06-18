@@ -188,11 +188,11 @@ windows_server = {
   }
 }
 
-# vnet_details = {
-#   vnetPeering1 = {
-#     name = "vnet1-to-vnet2"
-#     resource_group = "rg-dev"
-#     virtual_network_name = "vnet1-dev"
-#     remote_virtual_network_id = "vnet2-dev"
-#   }
-# }
+vnetPeering_details = {
+  vnetPeering1 = {
+    name = "vnet1-to-vnet2"
+    resource_group = "rg-dev"
+    virtual_network_name = "vnet1-dev"
+    remote_virtual_network_id = "vnet2-dev"
+  }
+}
