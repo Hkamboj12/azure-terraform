@@ -83,3 +83,12 @@ variable "windows_server" {
     sku               = string
   }))
 }
+
+variable "vnet_details" {
+    type = map(object({
+      name = string
+      resource_group = string
+      virtual_network_name = string
+      remote_virtual_network_id = string
+    }))
+}

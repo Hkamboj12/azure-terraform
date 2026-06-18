@@ -6,3 +6,7 @@ variable "vnet_details" {
       remote_virtual_network_id = string
     }))
 }
+
+variable "vnet" {
+  type = string  
+}

@@ -46,3 +46,9 @@ module "Windows_vm" {
   windows_server = var.windows_server
   nic_id         = module.NIC.NIC_id
 }
+
+module "vnet_peering" {
+    source = "../modules/vnet_peering"
+    vnet_details = var.vnet_details
+    vnet_id = module.vnet.vnet_id
+}
