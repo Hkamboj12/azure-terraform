@@ -152,21 +152,21 @@ vm_details = {
     offer          = "0001-com-ubuntu-server-jammy-daily"
   }
 
-  VM-2 = {
-    name           = "linuxVM2"
-    location       = "Central India"
-    resource_group = "rg-dev"
-    vm_size        = "Standard_B2ats_v2"
-    network_name   = "NIC-2"
-    publisher      = "Canonical"
-    sku            = "22_04-daily-lts-gen2"
-    offer          = "0001-com-ubuntu-server-jammy-daily"
-  }
+  # VM-2 = {
+  #   name           = "linuxVM2"
+  #   location       = "Central India"
+  #   resource_group = "rg-dev"
+  #   vm_size        = "Standard_B2ats_v2"
+  #   network_name   = "NIC-2"
+  #   publisher      = "Canonical"
+  #   sku            = "22_04-daily-lts-gen2"
+  #   offer          = "0001-com-ubuntu-server-jammy-daily"
+  # }
 }
 
 windows_server = {
   windows_server1 = {
-    name              = "WindowsVM1"
+    name              = "linuxvmvnet2"
     location          = "Central India"
     resource_group    = "rg-dev"
     size              = "Standard_B2ats_v2"
@@ -174,25 +174,33 @@ windows_server = {
     publisher         = "MicrosoftWindowsServer"
     offer             = "WindowsServer"
     sku               = "2022-datacenter-azure-edition"
+    
   }
 
-  windows_server2 = {
-    name              = "WindowsVM2"
-    location          = "Central India"
-    resource_group    = "rg-dev"
-    size              = "Standard_B2ats_v2"
-    network_interface = "NIC-4"
-    publisher         = "MicrosoftWindowsServer"
-    offer             = "WindowsServer"
-    sku               = "2022-datacenter-azure-edition"
-  }
+  # windows_server2 = {
+  #   name              = "WindowsVM2"
+  #   location          = "Central India"
+  #   resource_group    = "rg-dev"
+  #   size              = "Standard_B2ats_v2"
+  #   network_interface = "NIC-4"
+  #   publisher         = "MicrosoftWindowsServer"
+  #   offer             = "WindowsServer"
+  #   sku               = "2022-datacenter-azure-edition"
+  # }
 }
 
 vnetPeering_details = {
   vnetPeering1 = {
-    name = "vnet1-to-vnet2"
-    resource_group = "rg-dev"
-    virtual_network_name = "vnet1-dev"
-    remote_virtual_network_id = "vnet2-dev"
+    name                      = "vnet1-to-vnet2"
+    resource_group            = "rg-dev"
+    virtual_network_name      = "vnet1-dev"
+    remote_virtual_network_id = "vnet-2"
+  }
+
+  vnetPeering2 = {
+    name                      = "vnet2-to-vnet1"
+    resource_group            = "rg-dev"
+    virtual_network_name      = "vnet2-dev"
+    remote_virtual_network_id = "vnet-1"
   }
 }

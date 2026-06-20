@@ -48,7 +48,7 @@ module "Windows_vm" {
 }
 
 module "vnet_peering" {
-  source = "../modules/vnet_peering"
+  source              = "../modules/vnet_peering"
   vnetPeering_details = var.vnetPeering_details
-  vnet =   module.vnet.vnet_id
+  vnet                = module.vnet.vnet_id
 }

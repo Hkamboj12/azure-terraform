@@ -8,5 +8,5 @@ variable "vnetPeering_details" {
 }
 
 variable "vnet" {
-  type = map(string)  
+  type = map(string)
 }

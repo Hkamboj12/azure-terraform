@@ -11,19 +11,19 @@ resource "azurerm_network_security_group" "NSG" {
         protocol = "Tcp"
         source_port_range = "*"
         destination_port_range  = "22"
-        source_address_prefix = ""
+        source_address_prefix = "VirtualNetwork"
         destination_address_prefix = "*"
     }
 
     security_rule  {
-        name = ""
-        priority = "300"
+        name = "Allow-RDP-from-bastion"
+        priority = "301"
         direction = "Inbound"
         access = "Allow"
         protocol = "Tcp"
         source_port_range = "*"
-        destination_port_range  = "22"
-        source_address_prefix = ""
-
+        destination_port_range  = "3389"
+        source_address_prefix = "VirtualNetwork"
+        destination_address_prefix = "*"
     }
 }
