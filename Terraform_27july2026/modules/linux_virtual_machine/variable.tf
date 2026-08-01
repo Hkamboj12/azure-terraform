@@ -1,5 +1,5 @@
 variable "linux_virtula_machine" {
-    description = "This is used for linux virtula machine" 
+  description = "This is used for linux virtula machine"
 }
 
 variable "NIC_id" {

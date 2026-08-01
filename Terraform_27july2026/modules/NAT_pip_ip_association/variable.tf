@@ -3,7 +3,7 @@ variable "NAT_pub_ip_associt" {
 }
 
 variable "nat_gateway_id" {
-    description = "This is used to fetch nat id"  
+  description = "This is used to fetch nat id"
 }
 
 variable "public_ip_id" {

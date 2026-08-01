@@ -1,5 +1,5 @@
 variable "nsg_rule" {
-    description = " This variable is for nsg rules"
+  description = " This variable is for nsg rules"
 }
 
 variable "nsg_name" {

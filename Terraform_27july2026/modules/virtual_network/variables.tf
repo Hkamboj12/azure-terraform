@@ -1,3 +1,3 @@
 variable "virtual_network" {
-    description = "This is virtual network variable"  
+  description = "This is virtual network variable"
 }
