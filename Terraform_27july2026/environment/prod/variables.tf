@@ -1,55 +1,55 @@
 variable "resource_group" {
-    description = "This variable is used for resource group"
+  description = "Configuration details for the Azure Resource Group where networking and compute resources will be deployed."
 }
 
 variable "virtual_network" {
-    description = "This is virtual network variable"  
+  description = "Configuration settings for the Azure Virtual Network (VNet), including address space and region."
 }
 
 variable "subnet_details" {
-    description =  "This is used for subnet details"  
+  description = "Map of subnets to create within the Virtual Network, including address prefixes and service endpoints."
 }
 
 variable "vnet_peering" {
-    description   = "This is used to create the vnet peering"
+  description = "Configuration settings for establishing Virtual Network peering connections between VNets."
 }
 
 variable "nic_details" {
-    description = " This variable is used for network interface card"  
+  description = "Network Interface Card (NIC) configurations, including private IP allocations and subnet associations."
 }
 
 variable "public_ip" {
-    description = "This variable is used for public ip details"  
+  description = "Configuration parameters for Public IP address resource allocation (e.g., allocation method, SKU)."
 }
 
 variable "bastion_host" {
-    description = " This variable is used to deploy bastion host on HUB vnet"  
+  description = "Deployment specifications for the Azure Bastion host hosted within the HUB Virtual Network."
 }
 
 variable "network_security_group" {
-    description = " This is used to NSG for application"  
+  description = "Configuration map for Network Security Groups (NSGs) used to secure subnet and interface traffic."
 }
 
 variable "nsg_rule" {
-    description = " This variable is for nsg rules"
+  description = "Custom inbound and outbound security rules to attach to the designated Network Security Groups."
 }
 
 variable "NAT_gateway" {
-    description = "This variable is used to deploy NAT gateway in multiple region"  
+  description = "Configuration details for Azure NAT Gateway deployments across targeted availability zones or regions."
 }
 
 variable "NAT_pub_ip_associt" {
-  description = "This is used for nat and public ip assocation "
+  description = "Associations between NAT Gateways and their corresponding Public IP addresses or prefixes."
 }
 
 variable "NAT_SUB_assocation" {
-    description = "Vales of nt and subnet id"  
+  description = "Map of subnets to be associated with the NAT Gateway for outbound internet access."
 }
 
 variable "linux_virtula_machine" {
-    description = "This is used for linux virtula machine" 
+  description = "Configuration specs for Linux Virtual Machine instances, including OS disk, size, and admin credentials."
 }
 
 variable "nic_nsg_assocation" {
-    description = "This is used for nic and nsg"  
+  description = "Mapping parameters to associate Network Interface Cards (NICs) with specific Network Security Groups."
 }
