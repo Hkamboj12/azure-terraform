@@ -22,7 +22,7 @@ virtual_network = {
 
   spoke-vnet2 = {
     name           = "spoake-vnet2"
-    location       = " East Asia"
+    location       = "East Asia"
     resource_group = "rg-prod"
     address_space  = ["12.0.0.0/16"]
   }

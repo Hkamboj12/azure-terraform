@@ -20,4 +20,6 @@ resource "azurerm_linux_virtual_machine" "Linux_VM" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+
+  custom_data = base64encode(file("${path.module}/cloud-init.yaml"))
 }

@@ -10,7 +10,7 @@ terraform {
     resource_group_name  = "tfsatefile"
     storage_account_name = "tfsatefilehimanshu"
     container_name       = "tfstatefile"
-    key                  = "prod.terraform.tfstate"
+    key                  = "dev.terraform.tfstate"
   }
 }
 
