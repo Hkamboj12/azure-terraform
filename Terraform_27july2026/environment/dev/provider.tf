@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-  backend "azurerm" {
-    resource_group_name  = "tfsatefile"
-    storage_account_name = "tfsatefilehimanshu"
-    container_name       = "tfstatefile"
-    key                  = "dev.terraform.tfstate"
-  }
+  # backend "azurerm" {
+  #   resource_group_name  = "tfsatefile"
+  #   storage_account_name = "tfsatefilehimanshuk"
+  #   container_name       = "tfstatefile"
+  #   key                  = "dev.terraform.tfstate"
+  # }
 }
 
 provider "azurerm" {

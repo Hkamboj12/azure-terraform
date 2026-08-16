@@ -58,6 +58,13 @@ public-ip = {
     resource_group = "dev-rg"
     sku            = "Standard"
   }
+
+  app_gateway_East_asia_pip_ip = {
+    name = "ap-gw-public-ip-EASTASIA"
+    location = "East Asia"
+    resource_group = "dev-rg"
+    sku = "Standard"
+  }
 }
 
 bastion_host = {
@@ -72,16 +79,8 @@ bastion_host = {
 }
 
 nic_details = {
-    HUB-vnet-NIC-AzureLoadBalancer = {
-    name            = "LoadBalancerNIC"
-    resource_group  = "dev-rg"
-    location        = "East Asia"
-    config_name     = "privateIp"
-    subnet_id       = "loadbalancer-sub-HUB"
-    allocation_type = "Dynamic"
-  }
-
-   sub1-nic-hub = {
+  
+   sub1-nic-vm1-hub = {
     name            = "Main-NIC1"
     resource_group  = "dev-rg"
     location        = "East Asia"
@@ -90,7 +89,7 @@ nic_details = {
     allocation_type = "Dynamic"
   }
 
-  sub2-nic-hub = {
+  sub2-nic-vm1-hub = {
     name            = "Main-NIC2"
     resource_group  = "dev-rg"
     location        = "East Asia"
@@ -98,6 +97,8 @@ nic_details = {
     subnet_id       = "sub-HUB-2"
     allocation_type = "Dynamic"
   }
+
+  
 }
 
 NAT_gateway = {
@@ -175,12 +176,12 @@ nsg_rule = {
 
 nic_nsg_assocation = {
   main-subnet1-nic-nsg = {
-    nic_name = "sub1-nic-hub"
+    nic_name = "sub1-nic-vm1-hub"
     nsg_name = "application_security_group"
   }
 
   main-subnet2-nic-nsg = {
-    nic_name = "sub2-nic-hub"
+    nic_name = "sub2-nic-vm1-hub"
     nsg_name = "application_security_group"
   }
 }
@@ -190,9 +191,9 @@ linux_virtula_machine = {
     name           = "VM1-sub1"
     resource_group = "dev-rg"
     location       = "East Asia"
-    VM_size        = "Standard_D2s_v3"
+    VM_size        = "Standard_B2as_v2"
     vm_username    = "prod"
-    nic_id         = "sub1-nic-hub"
+    nic_id         = "sub1-nic-vm1-hub"
     passwd         = "Kamboj@203040"
   }
 
@@ -200,13 +201,50 @@ linux_virtula_machine = {
     name           = "VM1-sub2"
     resource_group = "dev-rg"
     location       = "East Asia"
-    VM_size        = "Standard_D2s_v3"
+    VM_size        = "Standard_B2as_v2"
     vm_username    = "prod"
-    nic_id         = "sub2-nic-hub"
+    nic_id         = "sub2-nic-vm1-hub"
     passwd         = "Kamboj@203040"
   }
 }
 
+application_gateway = {
+  app-gw-eastasia = {
+    name             = "app-gw-eastasia"
+    resource_group   = "dev-rg"
+    location         = "East Asia"
+    sku_name         = "Standard_v2"
+    sku_tier         = "Standard_v2"
+    sku_capacity     = 2
+    subnet_key       = "loadbalancer-sub-HUB"
+    frontend_port    = 80
+    public_ip_key    = "app_gateway_East_asia_pip_ip"
+    backend_port     = 80
+    nic_private_ip_key = ["sub1-nic-vm1-hub", "sub2-nic-vm1-hub"]
+  }
+}
 
+storage_account_details = {
+  storage_account = {
+    name = "azurehimanshu2030"
+    location = "East Asia"
+    resource_group = "dev-rg"
+    account_tier = "Standard"
+    access_tier = "Hot"
+    acc_replication_type = "LRS"
+  }
+}
 
+blob_container = {
+  release_container = {
+    name = "releasedocumentations"
+    storage_account_id = "storage_account"
+    container_access_type = "container"
+  }
 
+  data_container = {
+    name = "teamsdata"
+    storage_account_id = "storage_account"
+    container_access_type = "container"
+  }
+}

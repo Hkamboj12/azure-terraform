@@ -84,4 +84,24 @@ module "Linux_VM" {
   NIC_id                = module.NIC-dev.NIC_id
 }
 
+module "application_gateway" {
+    depends_on = [ module.dev-rg,module.vnet-dev,module.subnet-dev,module.public-ip-dev ]
+  source              = "../../modules/application_gateway"
+  application_gateway = var.application_gateway
+  subnet_id           = module.subnet-dev.subnet_id
+  public_ip_address_id = module.public-ip-dev.pip_id
+  private_ip_value     = module.NIC-dev.NIC_private_ip
+}
 
+module "storage_account" {
+  depends_on = [ module.dev-rg ]
+  source = "../../modules/storage_account"
+  storage_account_details = var.storage_account_details
+}
+
+module "blob_container" {
+  depends_on = [ module.storage_account ]
+  source = "../../modules/blob_container"
+  blob_container = var.blob_container
+  storage_id = module.storage_account.storage_id
+}

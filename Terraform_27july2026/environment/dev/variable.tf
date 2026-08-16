@@ -51,3 +51,16 @@ variable "linux_virtula_machine" {
 }
 
 
+variable "application_gateway" {
+    description = "This variable is used for application gateway"  
+}
+
+variable "storage_account_details" {
+  description = "This variable is used to take the data of storage account"
+}
+
+variable "blob_container" {
+    description = "This variable is used to create the blob container inside the storage account"
+}
+
+
