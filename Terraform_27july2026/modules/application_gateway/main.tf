@@ -27,6 +27,11 @@ resource "azurerm_application_gateway" "application_gateway" {
 
   backend_address_pool {
     name = "backendAddressPool"
+
+    ip_addresses = [ 
+      for vm_ip in each.value.nic_private_ip_key :
+        var.private_ip_value[vm_ip]
+     ]
   }
 
   backend_http_settings {
@@ -45,11 +50,14 @@ resource "azurerm_application_gateway" "application_gateway" {
   }
 
   request_routing_rule {
-    name                       = "requestRoutingRule"
-    rule_type                  = "Basic"
-    http_listener_name         = "httpListener"
-    backend_address_pool_name   = "backendAddressPool"
-    backend_http_settings_name  = "backendHttpSettings"
-  }
+  name                       = "requestRoutingRule"
+  priority                   = 100
+  rule_type                  = "Basic"
+
+  http_listener_name         = "httpListener"
+
+  backend_address_pool_name  = "backendAddressPool"
+  backend_http_settings_name = "backendHttpSettings"
+}
   
 }
